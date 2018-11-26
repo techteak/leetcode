@@ -4,17 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        max_len = min(1, len(s))
 
-        word = {}
+        max_len = 0
         start = 0
+        char_idx = {}
+
         for idx, char in enumerate(s):
-            if char in word and start <= word[char]:
-                start = word[char] + 1
+            if char in char_idx and start <= char_idx[char]:
+                start = char_idx[char] + 1
             else:
                 max_len = max(max_len, idx - start + 1)
 
-            word[char] = idx
+            char_idx[char] = idx
 
         return max_len
 
