@@ -9,7 +9,7 @@ class Solution(object):
         word = {}
         start = 0
         for idx, char in enumerate(s):
-            if char in word and start < word[char] + 1:
+            if char in word and start <= word[char]:
                 start = word[char] + 1
             else:
                 max_len = max(max_len, idx - start + 1)
@@ -39,7 +39,7 @@ def main():
     lines = readlines()
     while True:
         try:
-            s = "aaaa"
+            s = "abcabcbb"
 
             ret = Solution().lengthOfLongestSubstring(s)
 
