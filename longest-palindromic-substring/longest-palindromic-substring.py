@@ -9,7 +9,7 @@ class Solution(object):
         """
 
         def get_max_long(s, pos):
-            max_long = min(pos, len(s) - pos)
+            max_long = min(pos, len(s) - pos - 1)
             for i in range(0, max_long):
                 left = pos - i
                 right = pos + i
@@ -36,9 +36,8 @@ class Solution(object):
         for i in range(0, len(new_s)):
             max_long = get_max_long(new_s, i)
             if max_long > palindrome_len:
-                palindrome = new_s[i - max_long:i + max_long]
+                palindrome = new_s[i - max_long:i + max_long + 1]
                 palindrome_len = max_long
-
         return remove_shape(palindrome)
 
 
